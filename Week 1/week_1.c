@@ -4,11 +4,10 @@
 #include <stdlib.h>
 
 /* 
-Compilation CMD: gcc week_1.c -lm -pedantic -Wall -Wno-variadic-macros 
+Compilation Command: gcc week_1.c -lm -pedantic -Wall -Wno-variadic-macros 
 */
 
 /* #define DEBUG 1 */
-
 #ifdef DEBUG
 #define DBG(fmt, args...) printf("%s:%s:%d "fmt, __FILE__, __FUNCTION__, __LINE__, args)
 #else
@@ -49,12 +48,8 @@ int multiply(int x, int y) {
     if (x<10 || y<10) return addab(x, y);
     gethalfs(x, &a, &b);
     DBG("a = %d : b = %d \n", a, b); 
-
     gethalfs(y, &c, &d);
     DBG("c = %d : d = %d \n", c, d); 
-
-    /* 10^n ac + 10^n/2 (ad+bc) + bd */
-
     ac = multiply(a, c);
     bd = multiply(b, d);
     adbc = multiply(a+b, c+d) - (ac + bd);
